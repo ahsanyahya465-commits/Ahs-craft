@@ -1057,7 +1057,7 @@ if (cinematicIntro && canvas) {
 
     const ctx = canvas.getContext("2d");
 
-    const TOTAL_FRAMES = 102;
+    const TOTAL_FRAMES = 100;
 
     const images = [];
     let loadedFrames = 0;
@@ -1067,7 +1067,7 @@ if (cinematicIntro && canvas) {
 
     function framePath(frame) {
         const number = String(frame).padStart(3, "0");
-        return `./asseate/3D_scroll_animation_for_website_20261006100225_${number}.webp`;
+        return `./assets/3D_scroll_animation_for_website_20261006100225_${number}.webp`;
     }
 
     /* ---------------------------------------------
