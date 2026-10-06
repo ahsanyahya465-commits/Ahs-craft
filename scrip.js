@@ -1054,21 +1054,18 @@ const currentFrameText = document.getElementById("currentFrame");
 const progressBar = document.getElementById("cinematicProgress");
 
 if (cinematicIntro && canvas) {
+const TOTAL_FRAMES = 102;
 
-    const ctx = canvas.getContext("2d");
+function framePath(frame) {
+    const number = String(frame).padStart(3, "0");
+    return `./asseate/3D_scroll_animation_for_website_20261006100225_${number}.webp`;
+}
 
-    const TOTAL_FRAMES = 100;
-
-    const images = [];
-    let loadedFrames = 0;
-
-    let targetFrame = 0;
-    let displayedFrame = 0;
-
-    function framePath(frame) {
-        const number = String(frame).padStart(3, "0");
-        return `./assets/3D_scroll_animation_for_website_20261006100225_${number}.webp`;
-    }
+for (let i = 0; i < TOTAL_FRAMES; i++) {
+    const img = new Image();
+    img.src = framePath(i);
+    // ...
+}
 
     /* ---------------------------------------------
        PRELOAD ALL 300 FRAMES
