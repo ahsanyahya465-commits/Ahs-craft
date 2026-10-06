@@ -1391,3 +1391,396 @@ h3 {
 .contact-clickable .contact-link {
     color: inherit;
 }
+
+
+/* =====================================================
+   AHS CRAFT — CINEMATIC 300 FRAME INTRO
+===================================================== */
+
+.cinematic-intro {
+    position: relative;
+    height: 260vh;
+    background: #080705;
+}
+
+.cinematic-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #080705;
+}
+
+#ahsFrameCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.cinematic-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 25%,
+            rgba(0, 0, 0, 0.25) 55%,
+            rgba(0, 0, 0, 0.9) 100%
+        );
+}
+
+.cinematic-intro-content {
+    position: absolute;
+    left: 7%;
+    bottom: 12%;
+    max-width: 620px;
+    z-index: 3;
+}
+
+.cinematic-label {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #d2a06a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+}
+
+.cinematic-intro-content h2 {
+    margin: 0;
+    color: #f3eadc;
+    font-size: clamp(48px, 7vw, 105px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+}
+
+.cinematic-intro-content h2 span {
+    color: #d2a06a;
+}
+
+.cinematic-intro-content p {
+    max-width: 480px;
+    margin: 28px 0 0;
+    color: rgba(243, 234, 220, 0.72);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.cinematic-scroll {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 42px;
+    color: #eee7dc;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+}
+
+.cinematic-scroll i {
+    width: 55px;
+    height: 1px;
+    display: block;
+    background: rgba(243, 234, 220, 0.55);
+    animation: cinematicLine 1.8s ease-in-out infinite;
+}
+
+@keyframes cinematicLine {
+    0%,
+    100% {
+        transform: scaleX(0.35);
+        transform-origin: left;
+    }
+
+    50% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+.cinematic-frame-counter {
+    position: absolute;
+    right: 6%;
+    bottom: 11%;
+    z-index: 3;
+    color: #f3eadc;
+    font-family: monospace;
+    font-size: 26px;
+    letter-spacing: 0.08em;
+}
+
+.cinematic-frame-counter small {
+    color: rgba(243, 234, 220, 0.45);
+    font-size: 12px;
+}
+
+.cinematic-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 5;
+}
+
+.cinematic-progress span {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background: #d2a06a;
+    transform-origin: left;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .cinematic-intro {
+        height: 220vh;
+    }
+
+    .cinematic-intro-content {
+        left: 7%;
+        right: 7%;
+        bottom: 13%;
+    }
+
+    .cinematic-intro-content h2 {
+        font-size: clamp(45px, 14vw, 72px);
+    }
+
+    .cinematic-intro-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .cinematic-frame-counter {
+        top: 12%;
+        right: 7%;
+        bottom: auto;
+        font-size: 19px;
+    }
+
+    .cinematic-label {
+        font-size: 9px;
+    }
+
+    .cinematic-scroll {
+        margin-top: 28px;
+        font-size: 8px;
+    }
+}
+/* =========================================
+   AHS CRAFT — WELCOME LOADER
+========================================= */
+
+#ahsWelcomeLoader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F7F5F0;
+    
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+#ahsWelcomeLoader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.ahs-loader-content {
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+
+    animation: ahsLoaderContent 1.2s ease forwards;
+}
+
+.ahs-loader-small {
+    display: block;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+    font-weight: 600;
+
+    color: #D2A06A;
+
+    margin-bottom: 18px;
+}
+
+.ahs-loader-content h1 {
+    margin: 0;
+
+    font-size: clamp(32px, 6vw, 76px);
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #171717;
+}
+
+.ahs-loader-content h1 span {
+    color: #D2A06A;
+}
+
+.ahs-loader-line {
+    width: 0;
+    height: 1px;
+
+    margin: 24px auto 18px;
+
+    background: #D2A06A;
+
+    animation: ahsLoaderLine 1s ease 0.7s forwards;
+}
+
+.ahs-loader-content p {
+    margin: 0;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    color: #66625D;
+
+    opacity: 0;
+
+    animation: ahsLoaderText 0.8s ease 1s forwards;
+}
+
+
+/* Content entrance */
+
+@keyframes ahsLoaderContent {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Gold line */
+
+@keyframes ahsLoaderLine {
+
+    to {
+        width: 140px;
+    }
+
+}
+
+
+/* Bottom text */
+
+@keyframes ahsLoaderText {
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .ahs-loader-content h1 {
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+    .ahs-loader-content p {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+}
+
+/* =========================================
+   AHS CRAFT — MOBILE MENU RIGHT SIDE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        left: auto !important;
+        right: 15px !important;
+
+        width: 220px !important;
+
+        text-align: right !important;
+
+        align-items: flex-end !important;
+
+        font-weight: 700 !important;
+    }
+
+    .nav-links a {
+        font-weight: 700 !important;
+        text-align: right !important;
+    }
+
+}
+
+/* =====================================================
+   AHS CRAFT — MOBILE MENU
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* Mobile menu stays on the RIGHT */
+    #mainNav.active {
+        left: auto !important;
+        right: 15px !important;
+
+        text-align: right !important;
+        align-items: flex-end !important;
+    }
+
+    /* Menu links bold */
+    #mainNav.active a {
+        font-weight: 700 !important;
+    }
+
+    /* Mobile Add to Cart visible inside menu */
+    #mainNav.active .mobile-cart {
+        display: block !important;
+        font-weight: 700 !important;
+    }
+
+}
+
+
+/* =====================================================
+   DESKTOP
+   Hide mobile Add to Cart
+===================================================== */
+
+@media (min-width: 769px) {
+
+    #mainNav .mobile-cart {
+        display: none !important;
+    }
+
+}
